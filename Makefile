@@ -1,4 +1,4 @@
-.PHONY: check-env up down restart rebuild
+.PHONY: check-env up down restart rebuild composer permissions
 
 check-env:
 	@if [ ! -f .env ]; then \
@@ -12,7 +12,7 @@ check-env:
 		exit 1; \
 	fi
 
-up: check-env
+up: check-env permissions
 	docker compose up -d
 
 down:
@@ -21,6 +21,13 @@ down:
 restart:
 	docker compose restart
 
-rebuild: check-env
+rebuild: check-env permissions
 	docker compose up -d --build
+
+composer:
+	docker compose exec php composer $(filter-out $@,$(MAKECMDGOALS))
+
+permissions:
+	chmod -R 777 templates_c public/css public/uploads
+
 
