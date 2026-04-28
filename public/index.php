@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 require __DIR__ . '/../config/bootstrap.php';
 
 /** @var PDO $pdo */
 /** @var Smarty\Smarty $smarty */
 
-$tables = $pdo->query('SHOW TABLES')->fetchAll();
+$router = new App\Http\Router();
 
-$smarty->assign('greeting', 'Hello World!');
-$smarty->assign('pdo_status', 'Connected');
-$smarty->assign('tables_count', count($tables));
-$smarty->display('test.tpl');
+$registerRoutes = require __DIR__ . '/../config/routes.php';
+$registerRoutes($router, $pdo, $smarty);
+
+$router->dispatch($_SERVER['REQUEST_URI']);
