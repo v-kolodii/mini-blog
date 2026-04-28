@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+header {
+  border-bottom: 1px solid $color-border;
+  padding: $space-md 0;
+  margin-bottom: $space-2xl;
+
+  > a {
+    display: block;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $space-lg;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+main {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+  min-height: 60vh;
+}
+
+footer {
+  border-top: 1px solid $color-border;
+  padding: $space-xl 0;
+  margin-top: $space-2xl;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: 0.9rem;
+}

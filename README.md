@@ -18,13 +18,15 @@ Simple blog application with categories and posts, written in plain PHP.
 3. `make composer install` - install PHP dependencies
 4. `make migrate` - create database tables
 5. `make seed` - populate database with sample data
-6. Open <http://localhost:8080>
+6. `make css` - compile SCSS to CSS
+7. Open <http://localhost:8080>
 
 ## Commands
 
 - `make up` - start project
 - `make down` - stop
+- `make css-watch` - it will watch .scss files and rebuild automatically on save
 
 
 If you need to restart the database from scratch (for example, after changing .env): 
-- `docker compose down -v && make up`
+`docker compose down -v` and follow the First run steps again.

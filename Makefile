@@ -1,7 +1,7 @@
 -include .env
 export
 
-.PHONY: up down restart rebuild composer mysql migrate seed
+.PHONY: up down restart rebuild composer mysql migrate seed css css-watch
 
 check-env:
 	@if [ ! -f .env ]; then \
@@ -46,6 +46,12 @@ migrate:
 
 seed:
 	docker compose exec php php bin/seed.php
+
+css:
+	docker run --rm -v $(PWD):/app -w /app node:22-alpine sh -c "npm install --silent && npm run build:css"
+
+css-watch:
+	docker run --rm -v $(PWD):/app -w /app node:22-alpine sh -c "npm install --silent && npm run watch:css"
 
 %:
 	@:

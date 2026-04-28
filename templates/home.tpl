@@ -4,17 +4,17 @@
 
 {block name="content"}
     {foreach $categories as $category}
-        <section>
-            <header>
-                <h2>{$category.name}</h2>
-                <a href="/category/{$category.id}">View all</a>
+        <section class="category-section">
+            <header class="category-section__header">
+                <h2 class="category-section__title">{$category.name}</h2>
+                <a href="/category/{$category.id}" class="category-section__link">View all</a>
             </header>
 
             {if $category.description}
-                <p>{$category.description}</p>
+                <p class="category-section__description">{$category.description}</p>
             {/if}
 
-            <div>
+            <div class="post-grid">
                 {foreach $category.posts as $post}
                     {include file="partials/post-card.tpl" post=$post}
                 {/foreach}

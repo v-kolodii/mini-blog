@@ -3,38 +3,41 @@
 {block name="title"}{$post.title} — Mini Blog{/block}
 
 {block name="content"}
-    <article>
+    <article class="post">
         {if $post.image}
-            <img src="{$post.image}" alt="{$post.title}">
+            <div class="post__image">
+                <img src="{$post.image}" alt="{$post.title}">
+            </div>
         {/if}
 
-        <h1>{$post.title}</h1>
+        <h1 class="post__title">{$post.title}</h1>
 
-        <div>
+        <div class="post__meta">
             <time datetime="{$post.published_at}">
                 {$post.published_at|date_format:"%B %e, %Y"}
             </time>
-            <span>· {$post.views_count} views</span>
+            <span>·</span>
+            <span>{$post.views_count} views</span>
         </div>
 
         {if $post.categories}
-            <div>
-                Categories:
+            <div class="post__categories">
+                <span class="post__categories-label">In:</span>
                 {foreach $post.categories as $category}
-                    <a href="/category/{$category.id}">{$category.name}</a>{if !$category@last}, {/if}
+                    <a href="/category/{$category.id}" class="post__categories-link">{$category.name}</a>
                 {/foreach}
             </div>
         {/if}
 
-        <div>{$post.description}</div>
+        <p class="post__description">{$post.description}</p>
 
-        <div>{$post.content nofilter}</div>
+        <div class="post__content">{$post.content nofilter}</div>
     </article>
 
     {if $related}
-        <section>
-            <h2>Related posts</h2>
-            <div>
+        <section class="related">
+            <h2 class="related__title">Related posts</h2>
+            <div class="post-grid">
                 {foreach $related as $post}
                     {include file="partials/post-card.tpl" post=$post}
                 {/foreach}

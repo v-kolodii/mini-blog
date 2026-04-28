@@ -12,7 +12,7 @@ use Smarty\Smarty;
 
 class CategoryController
 {
-    private const PER_PAGE = 2;
+    private const PER_PAGE = 6;
     private const ALLOWED_SORTS = ['date', 'views'];
 
     public function __construct(

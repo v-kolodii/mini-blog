@@ -1,0 +1,35 @@
+@use 'variables' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-md;
+  margin-top: $space-2xl;
+  padding-top: $space-xl;
+  border-top: 1px solid $color-border;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    padding: $space-sm $space-md;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $color-text;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    transition: all 0.2s ease;
+
+    &:hover {
+      text-decoration: none;
+      border-color: $color-text;
+      background: $color-text;
+      color: $color-bg;
+    }
+  }
+
+  &__info {
+    font-size: 0.9rem;
+    color: $color-text-muted;
+  }
+}

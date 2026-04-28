@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{block name="title"}Mini Blog{/block}</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
     <body>
         {include file="partials/header.tpl"}

@@ -1,0 +1,61 @@
+@use 'variables' as *;
+
+.category-page {
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: $space-sm;
+  }
+
+  &__description {
+    color: $color-text-secondary;
+    font-size: 1.1rem;
+    margin-bottom: $space-xl;
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md 0;
+    margin-bottom: $space-xl;
+    border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+
+    &-label {
+      font-size: 0.85rem;
+      color: $color-text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    &-link {
+      font-size: 0.95rem;
+      color: $color-text-secondary;
+      padding: $space-xs $space-sm;
+      border-radius: $radius-sm;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $color-text;
+        text-decoration: none;
+        background: $color-border;
+      }
+
+      &--active {
+        color: $color-accent;
+        font-weight: 700;
+
+        &:hover {
+          color: $color-accent-hover;
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    color: $color-text-muted;
+    padding: $space-2xl 0;
+  }
+}

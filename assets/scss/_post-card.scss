@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  &__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: $radius-md;
+    margin-bottom: $space-sm;
+    background: $color-border;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+
+    a:hover {
+      text-decoration: none;
+      color: $color-accent;
+    }
+  }
+
+  &__meta {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+  }
+
+  &__excerpt {
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $color-accent;
+
+    &:hover {
+      color: $color-accent-hover;
+      text-decoration: none;
+    }
+  }
+}
