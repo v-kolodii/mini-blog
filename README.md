@@ -11,6 +11,12 @@ Simple blog application with categories and posts, written in plain PHP.
 - Docker Compose
 - SCSS (Dart Sass)
 
+## Requirements
+
+- Docker (with Docker Compose v2)
+- GNU Make
+- Ports `8080` and `3306` available on the host
+
 ## First run
 
 1. `cp .env.example .env` - set up DB credentials in the new created file
