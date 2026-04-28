@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\SmartyPlugin\UrlBuilder;
 use Smarty\Smarty;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -27,3 +28,9 @@ $smarty = new Smarty();
 $smarty->setTemplateDir(__DIR__ . '/../templates');
 $smarty->setCompileDir(__DIR__ . '/../templates_c');
 $smarty->setEscapeHtml(true);
+
+$smarty->registerPlugin(
+    Smarty::PLUGIN_FUNCTION,
+    'url',
+    [UrlBuilder::class, 'build']
+);
